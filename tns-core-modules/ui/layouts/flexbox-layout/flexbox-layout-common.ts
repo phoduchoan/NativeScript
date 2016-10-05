@@ -63,6 +63,11 @@ let validJustifyContent = {
     "space-around": true
 }
 
+export type FlexBasisPercent = number;
+export namespace FlexBasisPercent {
+    export const DEFAULT: number = Number.NaN;
+}
+
 function validateJustifyContent(value: any): boolean {
     return value in validJustifyContent;
 }
@@ -177,10 +182,10 @@ export abstract class FlexboxLayoutBase extends LayoutBase {
         this._setValue(FlexboxLayoutBase.alignItemsProperty, value);
     }
 
-    get alignContent(): AlignItems {
+    get alignContent(): AlignContent {
         return this._getValue(FlexboxLayoutBase.alignContentProperty);
     }
-    set alignContent(value: AlignItems) {
+    set alignContent(value: AlignContent) {
         this._setValue(FlexboxLayoutBase.alignContentProperty, value);
     }
 
